@@ -1,0 +1,30 @@
+read1:
+  - 
+    - class: File
+      path: ../../fastq/1_1.fq
+    - class: File
+      path: ../../fastq/2_1.fq
+  - 
+    - class: File
+      path: ../../fastq/3_1.fq
+    - class: File
+      path: ../../fastq/4_1.fq
+
+read2:
+  - 
+    - class: File
+      path: ../../fastq/1_2.fq
+    - class: File
+      path: ../../fastq/2_2.fq
+  - 
+    - class: File
+      path: ../../fastq/3_2.fq
+    - class: File
+      path: ../../fastq/4_2.fq
+
+ref:
+  class: File
+  path: ./genome/chr1.fa
+threads: 24
+pbat: False
+output_name: test_twgbs

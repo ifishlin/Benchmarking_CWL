@@ -1,0 +1,8 @@
+DB:
+  class: Directory
+  path: /home/y306n/CWL/BSBolt/genome/BSB_chr1
+threads: 24
+output_name: test
+bam:
+  class: File
+  path: merged_reads.fixmate.bam 

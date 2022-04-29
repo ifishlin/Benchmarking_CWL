@@ -1,0 +1,7 @@
+allc_files:
+  - class: File
+    path: /home/y306n/CWL/methylpy/allc_test.tsv.gz
+  - class: File
+    path: /home/y306n/CWL/methylpy/allc_test1.tsv.gz
+  - class: File
+    path: /home/y306n/CWL/methylpy/allc_test2.tsv.gz

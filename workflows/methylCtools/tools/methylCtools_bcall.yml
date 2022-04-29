@@ -1,0 +1,9 @@
+ref_pos:
+  class: File
+  path: /home/y306n/CWL/methylCtools/genome/chr1.pos.gz
+bam:
+  class: File
+  path: /home/y306n/CWL/methylCtools/merged_reads_duprem.bam
+
+threads: 24
+output_name: test

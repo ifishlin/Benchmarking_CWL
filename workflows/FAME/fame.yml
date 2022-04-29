@@ -1,0 +1,11 @@
+r1:
+  class: File
+  path: ../../fastq/1_1.fq
+r2:
+  class: File
+  path: ../../fastq/1_2.fq
+ref:
+  class: File
+  path: ./genome/index
+output_name: test_wgbs
+pbat: False

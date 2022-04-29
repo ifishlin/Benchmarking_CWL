@@ -1,0 +1,4 @@
+bam:
+   class: File
+   path: /home/y306n/CWL/methylCtools/test.bam
+output_name: test

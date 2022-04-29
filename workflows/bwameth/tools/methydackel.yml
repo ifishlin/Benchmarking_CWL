@@ -1,0 +1,8 @@
+bam:
+  class: File
+  path: ./merged_reads_duprem.bam
+ref:
+  class: File
+  path: /home/y306n/CWL/bwameth/genome/chr1.fa
+threads: 24
+output_name: test

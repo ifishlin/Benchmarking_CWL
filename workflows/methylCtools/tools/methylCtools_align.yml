@@ -1,0 +1,8 @@
+ref_conv_fa:
+  class: File
+  path: /home/y306n/CWL/methylCtools/genome/chr1.conv.fa
+read_conv_fq:
+  class: File
+  path: /home/y306n/CWL/methylCtools/reads.conv.fq
+threads: 24
+output_name: test
