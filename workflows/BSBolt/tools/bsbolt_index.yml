@@ -1,0 +1,4 @@
+ref:
+  class: File
+  path: ../genome/chr1_short.fa
+output_name: test

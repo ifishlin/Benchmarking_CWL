@@ -1,0 +1,4 @@
+convfq:
+   class: File
+   path: ./test.conv.fq
+

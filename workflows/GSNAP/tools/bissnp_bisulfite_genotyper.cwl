@@ -2,17 +2,18 @@
 
 cwlVersion: v1.0
 class: CommandLineTool
-baseCommand: ["java", "-jar", "/usr/local/BisSNP-0.71.jar", "-T", "BisulfiteGenotyper", "-vfn1", "cpg.raw.vcf", "-vfn2", "snp.raw.vcf"] 
+baseCommand: ["java", "-Xmx64g","-jar", "/usr/local/BisSNP-1.0.1.jar", "-T", "BisulfiteGenotyper", "-vfn1", "cpg.raw.vcf", "-vfn2", "snp.raw.vcf", "--filter_reads_with_N_cigar"]
 requirements:
   InlineJavascriptRequirement: {}
   DockerRequirement:
-    dockerPull: bissnp
-    # dockerOutputDirectory: /data
+    dockerPull: ifishlin324/bissnp
   InitialWorkDirRequirement:
-    listing: 
-      - $(inputs.bam) 
-      - $(inputs.bai)     
-      - $(inputs.reference) 
+    listing:
+      - $(inputs.bam)
+      - $(inputs.reference)
+
+stdout: stderr
+stderr: $(inputs.output_name + ".bissnp.log")
 
 inputs: 
   reference:
@@ -32,38 +33,32 @@ inputs:
   bam:
     type: File
     inputBinding:
-      prefix: -I   
-      position: 3  
-    #secondaryFiles:
-    #    - .bai 
-  bai:
-    doc: substitute "secondaryFiles" for flow control.
-    type: File
-  call_conf:
-    type: int  
+      prefix: -I
+      position: 3
+    secondaryFiles:
+      - .bai
+  stand_call_conf:
+    type: int
     inputBinding:
-      prefix: -stand_call_conf 
-      position: 4  
-  emit_conf:
-    type: int  
+      prefix: -stand_call_conf
+      position: 4
+  threads:
+    type: int
     inputBinding:
-      prefix: -stand_emit_conf 
-      position: 5 
-  bed:
-    doc: the genome regions for calling.
-    type: File?  
-    inputBinding:
-      prefix: -L 
-      position: 6
+      prefix: -nt
+      position: 5
+  output_name:
+    type: string
 
-## OUTPUT PART      
+## OUTPUT PART
 outputs: 
   cpg_vcf:
     type: File
     outputBinding:
-      glob: cpg.raw.vcf  
+      glob: cpg.raw.vcf
   snp_vcf:
     type: File
     outputBinding:
-      glob: snp.raw.vcf             
-           
+      glob: snp.raw.vcf
+  log:
+    type: stderr

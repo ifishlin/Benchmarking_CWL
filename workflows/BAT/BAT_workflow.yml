@@ -1,0 +1,17 @@
+reference:
+    class: File
+    path: genome/chr1.fa
+query:
+    - class: File
+      path: ../../fastq/1_1.fq
+mate_pair:
+    - class: File
+      path: ../../fastq/1_2.fq
+prefix_db: 
+    class: File
+    path: genome/chr1.fa
+threads: 4
+output_name: test
+header:
+    class: File
+    path: header_chr

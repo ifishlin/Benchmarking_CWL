@@ -1,0 +1,13 @@
+ref: hg_GRCh38_PhiX_Lambda.fa
+index_dir:
+  class: Directory
+  path: /omics/groups/OE0219/internal/yuyu/10.Benchmarking/genomic/index/gsnap
+r1:
+  - class: File
+    path: /home/y306n/CWL/fastq/1_1.fq
+r2:
+  - class: File
+    path: /home/y306n/CWL/fastq/2_1.fq
+threads: 24
+output_name: test
+pbat: False

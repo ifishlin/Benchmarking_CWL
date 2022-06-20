@@ -1,0 +1,13 @@
+read1-files:
+  - class: File
+    path: /home/y306n/CWL/fastq/pbat_1_1.fq
+read2-files:
+  - class: File
+    path: /home/y306n/CWL/fastq/pbat_2_1.fq
+sample: test
+forward-ref: /home/y306n/CWL/methylpy/genome/index_f
+reverse-ref: /home/y306n/CWL/methylpy/genome/index_r
+ref_fasta:
+  class: File
+  path: /home/y306n/CWL/methylpy/genome/index.fa
+pbat: True 

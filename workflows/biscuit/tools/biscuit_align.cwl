@@ -27,7 +27,7 @@ requirements:
   InlineJavascriptRequirement: {}
 
 stdout: stderr
-stderr: $(inputs.output_name + ".biscuitaln.log")
+stderr: $(inputs.output_name + ".biscuit.aln.log")
 
 inputs:
   - id: r1

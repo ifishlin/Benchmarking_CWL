@@ -1,0 +1,11 @@
+reference:
+  class: File
+  path: /omics/groups/OE0219/internal/yuyu/10.Benchmarking/genomic/index/hg_GRCh38_PhiX_Lambda.fa
+dbsnp:
+  class: File
+  path: /omics/groups/OE0219/internal/yuyu/10.Benchmarking/genomic/annotation/dbsnp/with_chr.vcf
+bam:
+  class: File
+  path: ../merged_reads_duprem_RG.bam
+threads: 24
+stand_call_conf: 30

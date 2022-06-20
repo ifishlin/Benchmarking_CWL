@@ -1,0 +1,16 @@
+r1:
+  - class: File
+    path: /home/y306n/CWL/fastq/1_1.fq
+  - class: File
+    path: /home/y306n/CWL/fastq/2_1.fq
+r2:
+  - class: File
+    path: /home/y306n/CWL/fastq/1_2.fq
+  - class: File
+    path: /home/y306n/CWL/fastq/2_2.fq
+DB:
+  class: Directory
+  path: /home/y306n/CWL/BSBolt/genome/BSB_chr1
+threads: 24
+output_name: test_wgbs
+pbat: False

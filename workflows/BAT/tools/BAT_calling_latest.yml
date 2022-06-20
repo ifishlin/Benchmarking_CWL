@@ -1,0 +1,14 @@
+ref:
+    class: File
+    path: /home/y306n/yuyu/benchmarking/genomic/index/hg_GRCh38_PhiX_Lambda.fa
+bam:
+    class: File
+    path: ../1_1.bam
+vcf:
+    class: File
+    path: test.vcf
+threads: 4
+output_name: test
+header:
+    class: File
+    path: header_chr

@@ -1,0 +1,4 @@
+ref:
+  class: File
+  path: ./genome/chr1.fa
+output_name: index

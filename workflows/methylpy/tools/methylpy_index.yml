@@ -1,0 +1,4 @@
+ref:
+  class: File
+  path: /home/y306n/CWL/workflows/methylpy/genome/index.fa
+output_name: test2

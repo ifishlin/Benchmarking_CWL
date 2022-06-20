@@ -1,0 +1,7 @@
+vcf:
+    class: File
+    path: bbb.vcf
+header: 
+    class: File
+    path: header_chr
+output_name: test

@@ -1,0 +1,5 @@
+ref:
+   class: File
+   path: /home/y306n/CWL/workflows/methylCtools/genome/chr1.fa
+output_name: test2
+

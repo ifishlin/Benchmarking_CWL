@@ -1,0 +1,32 @@
+read1:
+  - 
+    - class: File
+      path: /home/y306n/CWL/fastq/1_1.fq
+    - class: File
+      path: /home/y306n/CWL/fastq/1_2.fq
+  - 
+    - class: File
+      path: /home/y306n/CWL/fastq/1_3.fq
+    - class: File
+      path: /home/y306n/CWL/fastq/1_4.fq
+
+read2:
+  - 
+    - class: File
+      path: /home/y306n/CWL/fastq/2_1.fq
+    - class: File
+      path: /home/y306n/CWL/fastq/2_2.fq
+  - 
+    - class: File
+      path: /home/y306n/CWL/fastq/2_3.fq
+    - class: File
+      path: /home/y306n/CWL/fastq/2_4.fq
+
+ref:
+  class: File
+  path: /home/y306n/CWL/biscuit/genome/chr1.fa
+pbat: False
+
+threads: 24
+output_name: test_twgbs
+

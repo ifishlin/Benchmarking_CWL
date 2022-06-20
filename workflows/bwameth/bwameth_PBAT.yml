@@ -1,0 +1,12 @@
+r1:
+  - class: File
+    path: /home/y306n/CWL/fastq/1_1.fq
+r2:
+  - class: File
+    path: /home/y306n/CWL/fastq/1_2.fq
+ref:
+  class: File
+  path: ./genome/chr1.fa
+threads: 24
+output_name: test_pbat
+pbat: True

@@ -1,0 +1,29 @@
+read1:
+  - 
+    - class: File
+      path: /home/y306n/CWL/fastq/1_1.fq
+    - class: File
+      path: /home/y306n/CWL/fastq/2_1.fq
+  - 
+    - class: File
+      path: /home/y306n/CWL/fastq/3_1.fq
+    - class: File
+      path: /home/y306n/CWL/fastq/4_1.fq
+
+read2:
+  - 
+    - class: File
+      path: /home/y306n/CWL/fastq/1_2.fq
+    - class: File
+      path: /home/y306n/CWL/fastq/2_2.fq
+  - 
+    - class: File
+      path: /home/y306n/CWL/fastq/3_2.fq
+    - class: File
+      path: /home/y306n/CWL/fastq/4_2.fq
+
+ref:
+  class: File
+  path: /home/y306n/CWL/bwameth/genome/chr1.fa
+threads: 24
+output_name: test_twgbs

@@ -1,0 +1,11 @@
+r1:
+  class: File
+  path: /home/y306n/CWL/fastq/pbat_1_1.fq
+r2:
+  class: File
+  path: /home/y306n/CWL/fastq/pbat_1_2.fq
+ref:
+  class: File
+  path: /home/y306n/CWL/FAME/genome/index
+output_name: test_pbat
+pbat: True

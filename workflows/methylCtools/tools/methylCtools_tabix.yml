@@ -1,0 +1,4 @@
+posgz:
+   class: File
+   path: ./test.gz
+
