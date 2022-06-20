@@ -25,14 +25,14 @@ arguments:
   - valueFrom: $(inputs.fastq1.nameroot + ".trimmomatic.log")
     position: 4
     prefix: -trimlog
-  - valueFrom: $(inputs.fastq1.nameroot + "_trimmed.fastq")
+  - valueFrom: $(inputs.fastq1.nameroot + "_trimmed.fastq.gz")
     position: 7
-  - valueFrom: $(inputs.fastq1.nameroot + "_trimmed_unpaired.fastq")
+  - valueFrom: $(inputs.fastq1.nameroot + "_trimmed_unpaired.fastq.gz")
     position: 8
   - valueFrom: |
       ${ 
         if( inputs.fastq2 != null){
-          return inputs.fastq2.nameroot + "_trimmed.fastq"
+          return inputs.fastq2.nameroot + "_trimmed.fastq.gz"
         }
         else{
           return null
@@ -42,7 +42,7 @@ arguments:
   - valueFrom: |
       ${ 
         if( inputs.fastq2 != null){
-          return inputs.fastq2.nameroot + "_trimmed_unpaired.fastq"
+          return inputs.fastq2.nameroot + "_trimmed_unpaired.fastq.gz"
         }
         else{
           return null
@@ -91,13 +91,13 @@ inputs:
     inputBinding:
       position: 4
       prefix: -threads
-  phred:
-    type: string
-    default: '64'
-    inputBinding:
-      position: 4
-      prefix: -phred
-      separate: false
+#  phred:
+#    type: string
+#    default: '64'
+#    inputBinding:
+#      position: 4
+#      prefix: -phred
+#      separate: false
   log_filename:
     type: string?
     inputBinding:
@@ -158,14 +158,14 @@ outputs:
   fastq1_trimmed:
     type: File
     outputBinding:
-      glob: $(inputs.fastq1.nameroot + "_trimmed.fastq")
+      glob: $(inputs.fastq1.nameroot + "_trimmed.fastq.gz")
   fastq2_trimmed:    
     type: File?
     outputBinding:
       glob: |
         ${ 
           if( inputs.fastq2 != null){
-            return inputs.fastq2.nameroot + "_trimmed.fastq"
+            return inputs.fastq2.nameroot + "_trimmed.fastq.gz"
           }
           else{
             return null
@@ -174,14 +174,14 @@ outputs:
   fastq1_trimmed_unpaired:    
     type: File?
     outputBinding:
-      glob: $(inputs.fastq1.nameroot + "_trimmed_unpaired.fastq")
+      glob: $(inputs.fastq1.nameroot + "_trimmed_unpaired.fastq.gz")
   fastq2_trimmed_unpaired:    
     type: File?
     outputBinding:
       glob: |
         ${ 
           if( inputs.fastq2 != null){
-            return inputs.fastq2.nameroot + "_trimmed_unpaired.fastq"
+            return inputs.fastq2.nameroot + "_trimmed_unpaired.fastq.gz"
           }
           else{
             return null

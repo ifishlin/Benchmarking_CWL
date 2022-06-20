@@ -25,7 +25,7 @@ arguments:
 
 requirements:
   DockerRequirement:
-    dockerPull: ifishlin324/test
+    dockerPull: ifishlin324/methylctools
   ShellCommandRequirement: {}
   InlineJavascriptRequirement: {}
 
