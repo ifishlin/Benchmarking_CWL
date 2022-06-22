@@ -4,3 +4,6 @@
 [submodule "workflows/bismark_multilib"]
 	path = workflows/bismark_multilib
 	url = https://github.com/KerstenBreuer/Bismark_TWGBS_multilib
+[submodule "workflows/bismark_singlelib"]
+	path = workflows/bismark_singlelib
+	url = https://github.com/CompEpigen/WGBS_workflows
