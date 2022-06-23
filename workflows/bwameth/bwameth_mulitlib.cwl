@@ -97,8 +97,8 @@ steps:
         - call
 
 outputs:
-  bam_duprem:
-    type: File[]
+#  bam_duprem:
+#    type: File[]
     outputSource: bwameth_align_merge_sort_dedup/bam_duprem 
   picard_markdup_stat:
     type: File[]

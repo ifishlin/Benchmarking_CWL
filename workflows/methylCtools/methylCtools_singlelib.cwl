@@ -10,9 +10,9 @@ requirements:
  InlineJavascriptRequirement: {}
 
 inputs:
-  r1:
+  read1:
     type: File[]
-  r2:
+  read2:
     type: File[]
   threads:
     type: int
@@ -41,13 +41,13 @@ inputs:
 steps:
   methylCtools_fqconv:
     run: "./tools/methylCtools_fqconv.cwl"
-    scatter: [r1, r2]
+    scatter: [read1, read2]
     scatterMethod: 'dotproduct'
     in:
-       r1:
-         source: r1
-       r2:
-         source: r2
+       read1:
+         source: read1
+       read2:
+         source: read2
        output_name:
          source: output_name
     out:
@@ -133,12 +133,12 @@ steps:
       - vcfgztbi
 
 outputs: 
-   bam:
-     type: File[]
-     outputSource: methylCtools_align/bam
-   convbam:
-     type: File[]
-     outputSource: methylCtools_bconv/convbam
+#   bam:
+#     type: File[]
+#     outputSource: methylCtools_align/bam
+#   convbam:
+#     type: File[]
+#     outputSource: methylCtools_bconv/convbam
    bam_sorted_indexed:
      type: File
      outputSource: samtools_index/bam_sorted_indexed

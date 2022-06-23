@@ -1,17 +1,17 @@
-read1-files:
+read1:
   - class: File
-    path: ../../fastq/1_1.fq
+    path: ../../fastq/1_1.fq.gz
   - class: File
-    path: ../../fastq/2_1.fq
-read2-files:
+    path: ../../fastq/2_1.fq.gz
+read2:
   - class: File
-    path: ../../fastq/1_2.fq
+    path: ../../fastq/1_2.fq.gz
   - class: File
-    path: ../../fastq/2_2.fq
+    path: ../../fastq/2_2.fq.gz
 sample: test
-forward-ref: ./genome/index_f
-reverse-ref: ./genome/index_r
+#forward-ref: ./genome/chr22.fa_f
+#reverse-ref: ./genome/chr22.fa_r
 ref_fasta:
   class: File
-  path: ./genome/index.fa
+  path: ./genome/chr22.fa
 pbat: False 

@@ -10,13 +10,13 @@ requirements:
  InlineJavascriptRequirement: {}
 
 inputs:
-  read1-files:
+  read1:
     type:
       type: array # array of libraries
       items:
         type: array # array of lanes sequenced as part of one library
         items: File
-  read2-files:
+  read2:
     type:
       type: array # array of libraries
       items:
@@ -27,18 +27,18 @@ inputs:
   ref_fasta:
     type: File
     secondaryFiles:
-      - ^_f.1.bt2
-      - ^_f.2.bt2
-      - ^_f.3.bt2
-      - ^_f.4.bt2
-      - ^_f.rev.1.bt2
-      - ^_f.rev.2.bt2
-      - ^_r.1.bt2
-      - ^_r.2.bt2
-      - ^_r.3.bt2
-      - ^_r.4.bt2
-      - ^_r.rev.1.bt2
-      - ^_r.rev.2.bt2
+      - _f.1.bt2
+      - _f.2.bt2
+      - _f.3.bt2
+      - _f.4.bt2
+      - _f.rev.1.bt2
+      - _f.rev.2.bt2
+      - _r.1.bt2
+      - _r.2.bt2
+      - _r.3.bt2
+      - _r.4.bt2
+      - _r.rev.1.bt2
+      - _r.rev.2.bt2
   pbat:
      type: boolean
      default: $(false)
@@ -46,13 +46,13 @@ inputs:
 steps:
   methylpy_paired_multilib:
     run: "./tools/methylpy_paired_multilib.cwl"
-    scatter: [read1-files, read2-files]
+    scatter: [read1, read2]
     scatterMethod: 'dotproduct'
     in:
-       read1-files:
-         source: read1-files
-       read2-files:
-         source: read2-files
+       read1:
+         source: read1
+       read2:
+         source: read2
        sample:
          source: sample
        ref_fasta:

@@ -63,7 +63,7 @@ steps:
        - picard_markdup_log
 
   merge_and_sort:
-    run: "../tools/samtools_merge_and_sort.cwl"
+    run: "../../tools/samtools_merge_and_sort.cwl"
     in:
       bams:
         source: methylCtools_align_merge_sort_dedup/bam_duprem
@@ -74,7 +74,7 @@ steps:
        - bam_merged
 
   samtools_index:
-     run: "../tools/samtools_index.cwl"
+     run: "../../tools/samtools_index.cwl"
      in:
        bam_sorted:
          source: merge_and_sort/bam_merged
@@ -95,7 +95,7 @@ steps:
         - callgz
 
   tabix:
-    run: "../tools/tabix.cwl"
+    run: "../../tools/tabix.cwl"
     in:
       vcfgz:
         source: methylCtools_bcall/callgz

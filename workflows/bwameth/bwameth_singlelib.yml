@@ -1,12 +1,12 @@
-r1:
+read1:
   - class: File
-    path: ../../fastq/1_1.fq
-r2:
+    path: ../../fastq/1_1.fq.gz
+read2:
   - class: File
-    path: ../../fastq/1_2.fq
+    path: ../../fastq/1_2.fq.gz
 ref:
   class: File
-  path: ./genome/chr1.fa
+  path: ./genome/chr22.fa
 threads: 24
 output_name: test_wgbs
 pbat: False

@@ -16,22 +16,22 @@ requirements:
   InlineJavascriptRequirement: {}
   InitialWorkDirRequirement:
     listing:
-      - $(inputs.convfq)
+      - $(inputs.convfa)
 
 inputs:
-  - id: convfq
+  - id: convfa
     type: File
     inputBinding:
       position: 2
 
 outputs: 
-  fq:
+  fa:
     type: File
     secondaryFiles:
       - .amb
       - .ann
       - .bwt
       - .pac
-      - .aa
+      - .sa
     outputBinding:
-      glob: $(inputs.convfq.basename)
+      glob: $(inputs.convfa.basename)

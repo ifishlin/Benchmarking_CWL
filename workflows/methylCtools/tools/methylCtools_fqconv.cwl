@@ -14,12 +14,12 @@ requirements:
 #stderr: $(inputs.output_name + ".bwamethaln.log")
 
 inputs:
-  - id: r1
+  - id: read1
     type: File
     inputBinding:
       position: 3
       prefix: "-1"
-  - id: r2
+  - id: read2
     type: File
     inputBinding:
       position: 4

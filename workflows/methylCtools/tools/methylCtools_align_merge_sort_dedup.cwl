@@ -81,7 +81,7 @@ steps:
       - convbam
 
   merge_and_sort:
-    run: "../../tools/samtools_merge_and_sort.cwl"
+    run: "../../../tools/samtools_merge_and_sort.cwl"
     in:
       bams:
         source: methylCtools_bconv/convbam
@@ -92,7 +92,7 @@ steps:
        - bam_merged
 
   picard_markdup:
-    run: "../../tools/picard_markdup.cwl"
+    run: "../../../tools/picard_markdup.cwl"
     in:
       bam_sorted:
         source:  merge_and_sort/bam_merged

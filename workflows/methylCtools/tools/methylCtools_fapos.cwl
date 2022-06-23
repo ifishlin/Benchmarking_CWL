@@ -13,7 +13,7 @@ arguments:
     position: 4
   - valueFrom: ">"
     position: 5
-  - valueFrom: $(inputs.ref.nameroot).gz
+  - valueFrom: $(inputs.ref.nameroot).pos.gz
     position: 6
 
 requirements:
@@ -27,11 +27,9 @@ inputs:
     type: File
     inputBinding:
       position: 1
-  - id: output_name
-    type: string
 
 outputs: 
   gz:
     type: File
     outputBinding:
-      glob: $(inputs.ref.nameroot).gz
+      glob: $(inputs.ref.nameroot).pos.gz

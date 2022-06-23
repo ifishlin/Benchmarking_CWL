@@ -1,5 +1,3 @@
-#!/usr/bin/env cwl-runner
-
 cwlVersion: v1.0
 class: Workflow
 
@@ -10,9 +8,9 @@ requirements:
  InlineJavascriptRequirement: {}
 
 inputs:
-  r1:
+  read1:
     type: File[]
-  r2:
+  read2:
     type: File[]
   ref:
     type: File
@@ -35,13 +33,13 @@ inputs:
 steps:
   bwameth_align:
     run: "./tools/bwameth_align.cwl"
-    scatter: [r1, r2]
+    scatter: [read1, read2]
     scatterMethod: 'dotproduct'
     in:
-       r1:
-         source: r1
-       r2:
-         source: r2
+       read1:
+         source: read1
+       read2:
+         source: read2
        ref:
          source: ref
        threads:

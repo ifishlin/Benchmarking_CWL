@@ -30,11 +30,11 @@ stdout: stderr
 stderr: $(inputs.output_name + ".bwamethaln.log")
 
 inputs:
-  - id: r1
+  - id: read1
     type: File
     inputBinding:
       position: 4
-  - id: r2
+  - id: read2
     type: File
     inputBinding:
       position: 5

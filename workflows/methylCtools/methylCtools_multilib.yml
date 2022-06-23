@@ -1,33 +1,33 @@
 read1:
   - 
     - class: File
-      path: ../../fastq/1_1.fq
+      path: ../../fastq/1_1.fq.gz
     - class: File
-      path: ../../fastq/2_1.fq
+      path: ../../fastq/2_1.fq.gz
   - 
     - class: File
-      path: ../../fastq/3_1.fq
+      path: ../../fastq/3_1.fq.gz
     - class: File
-      path: ../../fastq/4_1.fq
+      path: ../../fastq/4_1.fq.gz
 
 read2:
   - 
     - class: File
-      path: ../../fastq/1_2.fq
+      path: ../../fastq/1_2.fq.gz
     - class: File
-      path: ../../fastq/2_2.fq
+      path: ../../fastq/2_2.fq.gz
   - 
     - class: File
-      path: ../../fastq/3_2.fq
+      path: ../../fastq/3_2.fq.gz
     - class: File
-      path: ../../fastq/4_2.fq
+      path: ../../fastq/4_2.fq.gz
 
 ref_conv_fa:
   class: File
-  path: ./genome/chr1.conv.fa
+  path: ./genome/chr22.conv.fa
 ref_pos:
   class: File
-  path: ./genome/chr1.pos.gz
+  path: ./genome/chr22.pos.gz
 
 threads: 24
 output_name: test_twgbs

@@ -1,5 +1,3 @@
-#!/usr/bin/env cwl-runner
-
 cwlVersion: v1.0
 class: Workflow
 
@@ -21,8 +19,6 @@ steps:
     in:
        ref:
          source: ref
-       output_name:
-         source: output_name
     out:
        - gz
 
@@ -42,15 +38,15 @@ steps:
       output_name:
         source: output_name
     out:
-      - convfq
+      - convfa
 
   methylCtools_bwa:
     run: "./methylCtools_bwa.cwl"
     in:
-      convfq:
-        source: methylCtools_faconv/convfq
+      convfa:
+        source: methylCtools_faconv/convfa
     out:
-      - fq
+      - fa
 
 
 outputs: 
@@ -59,4 +55,4 @@ outputs:
    outputSource: methylCtools_tabix/posgztbi
   bwafq:
    type: File
-   outputSource: methylCtools_bwa/fq 
+   outputSource: methylCtools_bwa/fa

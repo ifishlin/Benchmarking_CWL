@@ -4,7 +4,7 @@ cwlVersion: v1.0
 class: CommandLineTool
 baseCommand: ["methylCtools", "faconv"]
 arguments:
-  - valueFrom: $(inputs.ref.nameroot).conv.fq
+  - valueFrom: $(inputs.ref.nameroot).conv.fa
     position: 2
 
 
@@ -23,7 +23,7 @@ inputs:
     type: string
 
 outputs: 
-  convfq:
+  convfa:
     type: File
     outputBinding:
-      glob: $(inputs.ref.nameroot).conv.fq
+      glob: $(inputs.ref.nameroot).conv.fa
