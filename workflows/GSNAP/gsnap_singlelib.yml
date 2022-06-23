@@ -1,24 +1,23 @@
-ref: hg_GRCh38_PhiX_Lambda.fa
 index_dir:
   class: Directory
-  path: /omics/groups/OE0219/internal/yuyu/10.Benchmarking/genomic/index/gsnap
-r1:
+  path: ./genome/gmap_genome
+read1:
   - class: File
-    path: /home/y306n/CWL/fastq/5_1.fq
+    path: ../../fastq/3_1.fq.gz
   - class: File
-    path: /home/y306n/CWL/fastq/6_1.fq
-r2:
+    path: ../../fastq/4_1.fq.gz
+read2:
   - class: File
-    path: /home/y306n/CWL/fastq/5_2.fq
+    path: ../../fastq/3_2.fq.gz
   - class: File
-    path: /home/y306n/CWL/fastq/6_2.fq
+    path: ../../fastq/4_2.fq.gz
 threads: 24
 output_name: test
 pbat: False
-reference:
+ref:
   class: File
-  path: /omics/groups/OE0219/internal/yuyu/10.Benchmarking/genomic/index/hg_GRCh38_PhiX_Lambda.fa
+  path: ./genome/chr22.fa
 dbsnp:
   class: File
-  path: /omics/groups/OE0219/internal/yuyu/10.Benchmarking/genomic/annotation/dbsnp/with_chr.vcf
+  path: ./dbsnp/with_chr.vcf.gz
 stand_call_conf: 30

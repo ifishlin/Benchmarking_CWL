@@ -2,7 +2,7 @@
 
 cwlVersion: v1.0
 class: CommandLineTool
-baseCommand: ["bwameth_pbat.py", "index"]
+baseCommand: ["bwameth.py", "index"]
 
 requirements:
   DockerRequirement:
@@ -14,7 +14,7 @@ requirements:
       - $(inputs.ref)
 
 stdout: stderr
-stderr: $(inputs.output_name + ".bwameth.index.log")
+stderr: $(inputs.ref.nameroot + ".bwameth.index.log")
 
 inputs:
   - id: ref

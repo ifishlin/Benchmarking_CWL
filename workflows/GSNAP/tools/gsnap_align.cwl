@@ -1,5 +1,3 @@
-#!/usr/bin/env cwl-runner
-
 cwlVersion: v1.0
 class: CommandLineTool
 baseCommand: ["gsnap", "--gunzip",  "-O", "-A", "sam"] 
@@ -19,29 +17,29 @@ arguments:
     position: 10
   - valueFrom: "-"
     position: 11
+  - valueFrom: ${
+                  return inputs.index_dir.path.substring(inputs.index_dir.path.lastIndexOf('/') + 1,
+                                                         inputs.index_dir.path.length);
+                }
+    position: 1
+    prefix: -d
 
 requirements:
   InlineJavascriptRequirement: {}
   ShellCommandRequirement: {}
   DockerRequirement:
     dockerPull: ifishlin324/gsnap
-#    dockerOutputDirectory: /data
 
 stdout: stderr
 stderr: $(inputs.output_name + ".gsnap.aln.log")
 
 inputs: 
-  - id: ref
-    type: string
-    inputBinding:
-      prefix: -d
-      position: 1
-  - id: r1
+  - id: read1
     doc: read1.fa.gz
     type: File
     inputBinding:
       position: 4
-  - id: r2
+  - id: read2
     doc: read2.fa.gz
     type: File
     inputBinding:

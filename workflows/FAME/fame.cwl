@@ -1,5 +1,3 @@
-#!/usr/bin/env cwl-runner
-
 cwlVersion: v1.0
 class: CommandLineTool
 baseCommand: ["FAME"]
@@ -16,12 +14,12 @@ stderr: stdout
 stdout: $(inputs.output_name + ".fame.log")
 
 inputs:
-  - id: r1
+  - id: read1
     type: File
     inputBinding:
       position: 2
       prefix: "-r1"
-  - id: r2
+  - id: read2
     type: File
     inputBinding:
       position: 3

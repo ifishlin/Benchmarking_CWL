@@ -1,5 +1,3 @@
-#!/usr/bin/env cwl-runner
-
 cwlVersion: v1.0
 class: CommandLineTool
 baseCommand: ["java", "-Xmx64g","-jar", "/usr/local/BisSNP-1.0.1.jar", "-T", "BisulfiteGenotyper", "-vfn1", "cpg.raw.vcf", "-vfn2", "snp.raw.vcf", "--filter_reads_with_N_cigar"]
@@ -10,13 +8,13 @@ requirements:
   InitialWorkDirRequirement:
     listing:
       - $(inputs.bam)
-      - $(inputs.reference)
+      - $(inputs.ref)
 
 stdout: stderr
 stderr: $(inputs.output_name + ".bissnp.log")
 
 inputs: 
-  reference:
+  ref:
     type: File
     inputBinding:
       prefix: -R

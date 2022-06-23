@@ -1,5 +1,3 @@
-#!/usr/bin/env cwl-runner
-
 cwlVersion: v1.0
 class: Workflow
 
@@ -20,8 +18,6 @@ inputs:
     type:
       type: array
       items: File
-  ref:
-    type: string
   index_dir:
     type: Directory
   pbat:
@@ -35,15 +31,13 @@ inputs:
 steps:
   gsnap_align:
     run: "../tools/gsnap_align.cwl"
-    scatter: [r1, r2]
+    scatter: [read1, read2]
     scatterMethod: 'dotproduct'
     in:
-       r1:
+       read1:
          source: read1
-       r2:
+       read2:
          source: read2
-       ref:
-         source: ref
        pbat:
          source: pbat
        threads:

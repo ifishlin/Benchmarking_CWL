@@ -10,12 +10,10 @@ requirements:
  InlineJavascriptRequirement: {}
 
 inputs:
-  r1:
+  read1:
     type: File[]
-  r2:
+  read2:
     type: File[]
-  ref:
-    type: string
   index_dir:
     type: Directory
   pbat:
@@ -28,8 +26,8 @@ inputs:
   dbsnp:
     type: File
     secondaryFiles:
-      - .idx
-  reference:
+      - .tbi
+  ref:
     type: File
     secondaryFiles:
       - ^.dict
@@ -40,15 +38,13 @@ inputs:
 steps:
   gsnap_align:
     run: "./tools/gsnap_align.cwl"
-    scatter: [r1, r2]
+    scatter: [read1, read2]
     scatterMethod: 'dotproduct'
     in:
-       r1:
-         source: r1
-       r2:
-         source: r2
-       ref:
-         source: ref
+       read1:
+         source: read1
+       read2:
+         source: read2
        pbat:
          source: pbat
        threads:
@@ -100,8 +96,8 @@ steps:
   call:
     run:  "./tools/bissnp_bisulfite_genotyper.cwl"
     in:
-      reference:
-         source: reference
+      ref:
+         source: ref
       dbsnp:
          source: dbsnp
       bam:

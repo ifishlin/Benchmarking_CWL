@@ -1,5 +1,3 @@
-#!/usr/bin/env cwl-runner
-
 cwlVersion: v1.0
 class: Workflow
 
@@ -22,8 +20,6 @@ inputs:
       items:
         type: array # array of lanes sequenced as part of one library
         items: File
-  ref:
-    type: string
   index_dir:
     type: Directory
   pbat:
@@ -36,8 +32,8 @@ inputs:
   dbsnp:
     type: File
     secondaryFiles:
-      - .idx
-  reference:
+      - .tbi
+  ref:
     type: File
     secondaryFiles:
       - ^.dict
@@ -46,7 +42,7 @@ inputs:
     type: int
 
 steps:
-  gsnap_align:
+  gsnap_align_dedup_sort_merge:
     run: "./tools/gsnap_align_dedup_sort_merge.cwl"
     scatter: [read1, read2]
     scatterMethod: 'dotproduct'
@@ -55,8 +51,6 @@ steps:
          source: read1
        read2:
          source: read2
-       ref:
-         source: ref
        pbat:
          source: pbat
        threads:
@@ -72,7 +66,7 @@ steps:
     run: "../../tools/samtools_merge.cwl"
     in:
       bams:
-        source: gsnap_align/bam
+        source: gsnap_align_dedup_sort_merge/bam
       output_name: 
         source: output_name
     out:
@@ -97,8 +91,8 @@ steps:
   call:
     run:  "./tools/bissnp_bisulfite_genotyper.cwl"
     in:
-      reference:
-         source: reference
+      ref:
+         source: ref
       dbsnp:
          source: dbsnp
       bam:
@@ -117,13 +111,7 @@ steps:
 outputs:
   bam:
     type: File[]
-    outputSource: gsnap_align/bam
-#  picard_markdup_log:
-#    type: File
-#    outputSource: picard_markdup/picard_markdup_log
-#  picard_markdup_stat:
-#    type: File
-#    outputSource: picard_markdup/picard_markdup_stat
+    outputSource: gsnap_align_dedup_sort_merge/bam
   bam_sorted_indexed:
     type: File
     outputSource: samtools_index/bam_sorted_indexed

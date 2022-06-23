@@ -3,6 +3,10 @@
 cwlVersion: v1.0
 class: CommandLineTool
 baseCommand: ["FAME"]
+arguments:
+  - valueFrom: $(inputs.ref.nameroot)_index
+    position: 2
+    prefix: "--store_index"
 
 requirements:
   DockerRequirement:
@@ -19,11 +23,6 @@ inputs:
     inputBinding:
       position: 1
       prefix: "--genome"
-  - id: output_name
-    type: string
-    inputBinding:
-      position: 2
-      prefix: "--store_index"
 
 outputs:
   genome:
@@ -31,4 +30,4 @@ outputs:
     secondaryFiles:
       - _strands
     outputBinding:
-      glob: $(inputs.output_name)
+      glob: $(inputs.ref.nameroot)_index
