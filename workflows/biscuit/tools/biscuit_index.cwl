@@ -1,5 +1,3 @@
-#!/usr/bin/env cwl-runner
-
 cwlVersion: v1.0
 class: CommandLineTool
 baseCommand: ["biscuit", "index"]
@@ -14,7 +12,7 @@ requirements:
       - $(inputs.ref)
 
 stdout: stderr
-stderr: $(inputs.output_name + ".biscuit.index.log")
+stderr: $(inputs.ref.nameroot + ".biscuit.index.log")
 
 inputs:
   - id: ref

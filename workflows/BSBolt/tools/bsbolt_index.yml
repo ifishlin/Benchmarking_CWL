@@ -1,4 +1,4 @@
 ref:
   class: File
-  path: ../genome/chr1_short.fa
-output_name: test
+  path: ../genome/chr22.fa
+output_name: BSBolt_IDX

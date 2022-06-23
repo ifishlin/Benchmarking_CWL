@@ -1,5 +1,3 @@
-#!/usr/bin/env cwl-runner
-
 cwlVersion: v1.0
 class: Workflow
 
@@ -42,7 +40,7 @@ inputs:
     type: string 
 
 steps:
-  biscuit_align:
+  biscuit_align_dedup_sort_merge:
     run: "./tools/biscuit_align_dedup_sort_merge.cwl"
     scatter: [read1, read2]
     scatterMethod: 'dotproduct'
@@ -61,12 +59,13 @@ steps:
          source: output_name
     out:
        - bam_merged
+       - log
 
   samtools_merge:
     run: "../../tools/samtools_merge.cwl"
     in:
       bams:
-        source: biscuit_align/bam_merged
+        source: biscuit_align_dedup_sort_merge/bam_merged
       output_name: 
         source: output_name
     out:
@@ -126,3 +125,10 @@ outputs:
     bed:
       type: File
       outputSource: biscuit_vcf2bed/bed
+    samblaster_log:
+      type:
+        type: array # array of libraries
+        items:
+          type: array # array of lanes sequenced as part of one library
+          items: File
+      outputSource: biscuit_align_dedup_sort_merge/log

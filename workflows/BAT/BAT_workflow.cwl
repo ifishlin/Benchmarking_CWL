@@ -1,5 +1,3 @@
-#!/usr/bin/env cwl-runner
-
 cwlVersion: v1.0
 class: Workflow
 
@@ -10,19 +8,21 @@ requirements:
  InlineJavascriptRequirement: {}
 
 inputs:
-  - id : reference
+  - id : ref
     type: File
     secondaryFiles:
       - .fai
-  - id: query
-    type: File[]
-  - id: mate_pair
-    type: File[]
-  - id: prefix_db
-    type: File
-    secondaryFiles:
       - ^.ctidx
       - ^.gaidx
+  - id: read1
+    type: File[]
+  - id: read2
+    type: File[]
+#  - id: prefix_db
+#    type: File
+#    secondaryFiles:
+#      - ^.ctidx
+#      - ^.gaidx
   - id: threads
     type: int
   - id: output_name
@@ -39,15 +39,15 @@ outputs:
     outputSource: calling/vcfgztbi
 
 steps:
-  mapping:
+  BAT_mapping:
     run: "./tools/BAT_mapping.cwl"
-    scatter: [r1, r2]
+    scatter: [read1, read2]
     scatterMethod: 'dotproduct'
     in:
-      reference: reference
-      r1: query
-      r2: mate_pair
-      prefix_db: prefix_db
+      reference: ref
+      read1: read1
+      read2: read2
+      prefix_db: ref
       threads: threads
     out: [bam]
 
@@ -55,7 +55,7 @@ steps:
     run: "../../tools/samtools_merge_and_sort.cwl"
     in:
       bams:
-        source: mapping/bam
+        source: BAT_mapping/bam
       name_sort:
         valueFrom: $(false)
       threads: threads
@@ -74,7 +74,7 @@ steps:
      run: "./tools/BAT_calling_latest.cwl"
      in:
        ref:
-         source: reference
+         source: ref
        bam:
          source: samtools_index/bam_sorted_indexed
        threads:

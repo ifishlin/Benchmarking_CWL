@@ -24,7 +24,7 @@ read2:
 
 DB:
   class: Directory
-  path: ./genome/BSB_chr1
+  path: ./genome/BSBolt_IDX
 
 threads: 24
 output_name: test_twgbs

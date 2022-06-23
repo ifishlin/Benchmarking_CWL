@@ -10,9 +10,9 @@ requirements:
  InlineJavascriptRequirement: {}
 
 inputs:
-  r1:
+  read1:
     type: File[]
-  r2:
+  read2:
     type: File[]
   DB:
     type: Directory
@@ -27,13 +27,13 @@ inputs:
 steps:
   bsbolt_align:
      run: "./tools/bsbolt_align.cwl"
-     scatter: [r1, r2]
+     scatter: [read1, read2]
      scatterMethod: 'dotproduct'
      in:
-        r1:
-          source: r1
-        r2:
-          source: r2
+        read1:
+          source: read1
+        read2:
+          source: read2
         DB:
           source: DB
         threads:
@@ -97,12 +97,6 @@ steps:
        - bggz
 
 outputs: 
-#  bam_fixmate:
-#    type: File[]
-#    outputSource: samtools_fixmate/bam_fixmate
-   bam_merged:
-     type: File
-     outputSource: merge_and_sort/bam_merged
    bam_sorted_indexed:
      type: File
      outputSource: samtools_index/bam_sorted_indexed

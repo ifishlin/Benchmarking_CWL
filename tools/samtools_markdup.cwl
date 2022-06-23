@@ -17,7 +17,7 @@ arguments:
   - valueFrom: "24"
     prefix: -@
   - valueFrom: "-r"
-  - valueFrom: $(inputs.bam_sorted.nameroot).fixmate.bam
+  - valueFrom: $(inputs.bam_sorted.nameroot).markdup.bam
     position: 3
 
 inputs:

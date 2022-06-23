@@ -1,12 +1,12 @@
-r1:
+read1:
   class: File
-  path: /home/y306n/CWL/fastq/1_1.fq
-r2:
+  path: ../../..//fastq/1_1.fq
+read2:
   class: File
-  path: /home/y306n/CWL/fastq/2_1.fq
+  path: ../../../fastq/2_1.fq
 ref:
   class: File
-  path: /home/y306n/CWL/biscuit/genome/chr1.fa
+  path: ../genome/chr22.fa
 pbat: False
 threads: 24
 output_name: test

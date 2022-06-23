@@ -1,5 +1,3 @@
-#!/usr/bin/env cwl-runner
-
 cwlVersion: v1.0
 class: Workflow
 
@@ -10,12 +8,12 @@ requirements:
  InlineJavascriptRequirement: {}
 
 inputs:
-  r1:
+  read1:
     doc: first reads belonging to the same library
     type:
       type: array
       items: File
-  r2:
+  read2:
     doc: first reads belonging to the same library
     type:
       type: array
@@ -33,13 +31,13 @@ inputs:
 steps:
   bsbolt_align:
      run: "./bsbolt_align.cwl"
-     scatter: [r1, r2]
+     scatter: [read1, read2]
      scatterMethod: 'dotproduct'
      in:
-        r1:
-          source: r1
-        r2:
-          source: r2
+        read1:
+          source: read1
+        read2:
+          source: read2
         DB:
           source: DB
         threads:

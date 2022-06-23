@@ -33,14 +33,14 @@ inputs:
     default: False
 
 steps:
-  bsbolt_align:
+  bsbolt_align_merge_sort_dedup:
      run: "./tools/bsbolt_align_merge_sort_dedup.cwl"
-     scatter: [r1, r2]
+     scatter: [read1, read2]
      scatterMethod: 'dotproduct'
      in:
-        r1:
+        read1:
           source: read1
-        r2:
+        read2:
           source: read2
         DB:
           source: DB
@@ -57,7 +57,7 @@ steps:
     run: "../../tools/samtools_merge_and_sort.cwl"
     in:
       bams:
-        source: bsbolt_align/bam_markdup
+        source: bsbolt_align_merge_sort_dedup/bam_markdup
       name_sort:
         valueFrom: $(false)
       threads: threads

@@ -1,5 +1,3 @@
-#!/usr/bin/env cwl-runner
-
 cwlVersion: v1.0
 class: CommandLineTool
 baseCommand: ["bsbolt", "Align"]
@@ -10,12 +8,12 @@ requirements:
   InlineJavascriptRequirement: {}
 
 inputs:
-  - id: r1
+  - id: read1
     type: File
     inputBinding:
       position: 4
       prefix: -F1
-  - id: r2
+  - id: read2
     type: File
     inputBinding:
       position: 5

@@ -28,7 +28,7 @@ arguments:
     valueFrom: $(inputs.threads)
     position: 7
   - prefix: "-o"
-    valueFrom: $(inputs.output_name)
+    valueFrom: $(inputs.output_name).bam
     position: 7
   - valueFrom: "-"
     position: 8
@@ -51,7 +51,7 @@ outputs:
   - id: bam_duprem
     type: File
     outputBinding:
-      glob: $(inputs.output_name)
+      glob: $(inputs.output_name).bam
   - id: log
     type: File
     outputBinding:

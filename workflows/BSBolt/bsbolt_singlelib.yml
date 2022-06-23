@@ -1,16 +1,16 @@
-r1:
+read1:
   - class: File
     path: ../../fastq/1_1.fq
   - class: File
     path: ../../fastq/2_1.fq
-r2:
+read2:
   - class: File
     path: ../../fastq/1_2.fq
   - class: File
     path: ../../fastq/2_2.fq
 DB:
   class: Directory
-  path: ./genome/BSB_chr1
+  path: ./genome/BSBolt_IDX
 threads: 24
 output_name: test_wgbs
 pbat: False

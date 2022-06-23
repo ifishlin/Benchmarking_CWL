@@ -1,17 +1,17 @@
-reference:
+ref:
     class: File
-    path: genome/chr1.fa
-query:
+    path: ./genome/chr22.fa
+read1:
     - class: File
       path: ../../fastq/1_1.fq
-mate_pair:
+read2:
     - class: File
       path: ../../fastq/1_2.fq
 prefix_db: 
     class: File
-    path: genome/chr1.fa
+    path: ./genome/chr22.fa
 threads: 4
 output_name: test
 header:
     class: File
-    path: header_chr
+    path: ./patch/header_chr

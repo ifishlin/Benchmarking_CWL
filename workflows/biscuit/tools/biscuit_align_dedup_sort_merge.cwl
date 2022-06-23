@@ -1,5 +1,3 @@
-#!/usr/bin/env cwl-runner
-
 cwlVersion: v1.0
 class: Workflow
 
@@ -41,12 +39,12 @@ inputs:
 steps:
   biscuit_align:
     run: "./biscuit_align.cwl"
-    scatter: [r1, r2]
+    scatter: [read1, read2]
     scatterMethod: 'dotproduct'
     in:
-       r1:
+       read1:
          source: read1
-       r2:
+       read2:
          source: read2
        ref:
          source: ref
@@ -60,7 +58,7 @@ steps:
        - bam
 
   samblaster_sort:
-    run: "./samblaster_sort.cwl"
+    run: "../../../tools/samblaster_sort.cwl"
     scatter: [bam]
     scatterMethod: 'dotproduct'
     in:
@@ -75,7 +73,7 @@ steps:
       - log
 
   samtools_merge:
-    run: "../../tools/samtools_merge.cwl"
+    run: "../../../tools/samtools_merge.cwl"
     in:
       bams:
         source: samblaster_sort/bam_duprem
@@ -87,3 +85,6 @@ outputs:
     bam_merged:
       type: File
       outputSource: samtools_merge/bam_merged
+    log:
+      type: File[]
+      outputSource: samblaster_sort/log

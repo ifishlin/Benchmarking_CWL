@@ -1,5 +1,3 @@
-#!/usr/bin/env cwl-runner
-
 cwlVersion: v1.0
 class: CommandLineTool
 baseCommand: ["segemehl.x"] 
@@ -21,7 +19,7 @@ requirements:
     dockerPull: ifishlin324/bat
 
 stdout: stderr
-stderr: $(inputs.output_name + ".gsnap.idx.log")
+stderr: $(inputs.ref.nameroot + ".bat.idx.log")
 
 inputs: 
   - id: ref
