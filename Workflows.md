@@ -1,4 +1,4 @@
-# CWL table of the benchmarking project.
+# CWL table of the Benchmarking project.
 
 The location of the Trimming CWL
 ```
