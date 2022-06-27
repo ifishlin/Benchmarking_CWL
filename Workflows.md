@@ -2,13 +2,13 @@
 
 The location of the Trimming CWL
 ```
-/tools/trimming
+/tools/trimming/
 ```
 
 The location of the workflows CWL
 
 ```
-/workflows
+/workflows/<workflow_name>/
 ```
 
 1). BAT
