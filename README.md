@@ -4,16 +4,16 @@
 
 We implemented ten bisulfite sequencing analysis workflows in CWL.
 
-1. BAT
-2. Biscuit
-3. Bismark
-4. BSBolt
-5. bwa-meth
-6. FAME
-7. gemBS
-8. GSNAP
-9. methylCtools
-10. methylpy
+1. [BAT](http://www.bioinf.uni-leipzig.de/Software/BAT/)
+2. [Biscuit](https://huishenlab.github.io/biscuit/)
+3. [Bismark](https://www.bioinformatics.babraham.ac.uk/projects/bismark/)
+4. [BSBolt](https://github.com/NuttyLogic/BSBolt)
+5. [bwa-meth](https://github.com/brentp/bwa-meth)
+6. [FAME](https://github.com/FischerJo/FAME)
+7. [gemBS](https://github.com/heathsc/gemBS)
+8. [GSNAP](http://research-pub.gene.com/gmap/) ( - [BisSNP](https://people.csail.mit.edu/dnaase/bissnp2011/))
+9. [methylCtools](https://github.com/hovestadt/methylCtools)
+10. [methylpy](https://github.com/yupenghe/methylpy)
 
 ## Installation
 
