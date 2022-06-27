@@ -30,10 +30,10 @@ inputs:
     type: File
     secondaryFiles:
       - .tbi
-  pbat:
-    type: boolean
-    default: False
-  twgbs:
+#  pbat:
+#    type: boolean
+#    default: False
+  if_twgbs:
     type: boolean
     default: False
 
@@ -120,7 +120,7 @@ steps:
         output_name:
           source: output_name
         twgbs:
-          source: twgbs
+          source: if_twgbs
      out:
         - callgz
 

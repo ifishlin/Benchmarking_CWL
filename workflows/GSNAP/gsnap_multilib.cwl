@@ -88,7 +88,7 @@ steps:
      out:
        - bam_sorted_indexed
 
-  call:
+  bissnp_call:
     run:  "./tools/bissnp_bisulfite_genotyper.cwl"
     in:
       ref:
@@ -109,18 +109,18 @@ steps:
       - log
 
 outputs:
-  bam:
-    type: File[]
-    outputSource: gsnap_align_dedup_sort_merge/bam
+#  bam:
+#    type: File[]
+#    outputSource: gsnap_align_dedup_sort_merge/bam
   bam_sorted_indexed:
     type: File
     outputSource: samtools_index/bam_sorted_indexed
   cpg_vcf:
     type: File
-    outputSource: call/cpg_vcf
+    outputSource: bissnp_call/cpg_vcf
   snp_vcf:
     type: File
-    outputSource: call/snp_vcf
+    outputSource: bissnp_call/snp_vcf
   log:
     type: File
-    outputSource: call/log
+    outputSource: bissnp_call/log

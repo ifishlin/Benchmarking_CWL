@@ -32,20 +32,16 @@ inputs:
       - .bwt
       - .pac
       - .sa
-  ref_pos:
-    type: File
-    secondaryFiles:
-      - .tbi
 
 steps:
   methylCtools_fqconv:
     run: "./methylCtools_fqconv.cwl"
-    scatter: [r1, r2]
+    scatter: [read1, read2]
     scatterMethod: 'dotproduct'
     in:
-       r1:
+       read1:
          source: read1
-       r2:
+       read2:
          source: read2
        output_name:
          source: output_name

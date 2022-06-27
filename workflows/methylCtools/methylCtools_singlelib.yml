@@ -17,4 +17,4 @@ ref_pos:
 
 threads: 24
 output_name: test_wgbs
-twgbs: False
+if_twgbs: False

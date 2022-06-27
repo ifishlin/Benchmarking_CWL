@@ -99,7 +99,7 @@ steps:
 outputs:
 #  bam_duprem:
 #    type: File[]
-    outputSource: bwameth_align_merge_sort_dedup/bam_duprem 
+#    outputSource: bwameth_align_merge_sort_dedup/bam_duprem 
   picard_markdup_stat:
     type: File[]
     outputSource: bwameth_align_merge_sort_dedup/picard_markdup_stat

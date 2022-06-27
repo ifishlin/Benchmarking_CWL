@@ -53,8 +53,6 @@ steps:
          source: output_name
        ref_conv_fa:
          source: ref_conv_fa
-       ref_pos:
-         source: ref_pos
        threads:
          source: threads
     out:
