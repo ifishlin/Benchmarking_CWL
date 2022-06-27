@@ -1,4 +1,4 @@
-# yml of protocol PBAT
+# YAML of protocol PBAT
 fastq1:
    class: File
    path: "../../fastq/2_1.fq.gz"
