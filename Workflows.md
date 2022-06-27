@@ -27,6 +27,15 @@ The location of the workflows CWL
 | Biscuit | EMseq | trim_galore.cwl | biscuit_singlelib.cwl |
 | Biscuit | PBAT | trim_galore.cwl | biscuit_singlelib.cwl |
 
+
+| Workflow     | Protocols       | Trimming | workflow CWL |
+| ------------- |-------------| -----:| :----: |
+| Bismark | WGBS | trim_galore.cwl | bismark_singlelib/CWL/workflows/Bismark_start_with_trimmed.cwl |
+| Bismark | Swift | trim_galore.cwl | bismark_singlelib/CWL/workflows/Bismark_start_with_trimmed.cwl |
+| Bismark | T-WGBS | trim_galore.cwl | bismark_multilib/CWL/workflows/Bismark_TWGBS_multilib.cwl|
+| Bismark | EMseq | trim_galore.cwl | bismark_singlelib/CWL/workflows/Bismark_start_with_trimmed.cwl |
+| Bismark | PBAT | trim_galore.cwl | bismark_singlelib/CWL/workflows/Bismark_start_with_trimmed.cwl |
+
 | Workflow     | Protocols       | Trimming CWL | workflow CWL |
 | ------------- |-------------| -----:| :----: |
 | BSBolt | WGBS | trim_galore.cwl | bsbolt_singlelib.cwl |
