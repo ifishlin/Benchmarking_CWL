@@ -98,6 +98,8 @@ Despite of this versatility, so far only few attempts have been made to systemat
 
 To bridge this gap, we set out to perform a thorough benchmarking study of bisulfite sequencing workflows. At the core of our benchmark is a set of samples with highly accurate methylation calls (Bock, Halbritter et al. 2016), which we use as the gold-standard. We evaluate the software in the context of five most widely used sequencing protocols and propose protocol-specific choice of workflows. To simplify the choice of workflows and enable continuity we developed rich data presentation and benchmarking resources. To our knowledge, this is the most comprehensive benchmarking study of bisulfite sequencing to date.
 
+All CWLs combinations of the Benchmarking projects are listed in [Workflows.md](https://github.com/ifishlin/Benchmarking_CWL/blob/main/Workflows.md).
+
 # Contact
 We appreciate any feedback. Feel free to contact us by mailing to p.lutsik `at` dkfz-heidelberg.de and yu-yu.lin `at` dkfz-heidelberg.de. 
 
