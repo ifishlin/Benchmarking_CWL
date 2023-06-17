@@ -69,7 +69,7 @@ The location of the workflows CWL
 |-------------| -----:| :----: | :----: |
 | WGBS | trim_galore.cwl | gsnap_singlelib_start_with_trimmed.cwl | gsnap_singlelib.cwl |
 | Swift | trim_galore.cwl | gsnap_singlelib_start_with_trimmed.cwl | gsnap_singlelib.cwl |
-| T-WGBS | trim_galore.cwl | gsnap_multilib_start_with_trimmed.cwl | gsnap_singlelib.cwl |
+| T-WGBS | trim_galore.cwl | gsnap_multilib_start_with_trimmed.cwl | gsnap_multilib.cwl |
 | PBAT | trim_galore.cwl | gsnap_singlelib_start_with_trimmed.cwl | gsnap_singlelib.cwl |
 | EMseq | trim_galore.cwl | gsnap_singlelib_start_with_trimmed.cwl | gsnap_singlelib.cwl |
 
