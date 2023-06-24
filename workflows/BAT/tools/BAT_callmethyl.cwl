@@ -13,6 +13,7 @@ arguments:
     position: 8
   - valueFrom: ">>"
     position: 9
+    shellQuote: false
   - valueFrom: "tmp.vcf"
     position: 10
 

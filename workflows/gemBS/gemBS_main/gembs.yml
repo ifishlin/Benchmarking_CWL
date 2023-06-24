@@ -10,7 +10,7 @@ csv:
     path: example.csv    
 ref:
     class: Directory
-    location: reference/
+    location: /data/auto/data/genome/
 fastq:
     class: Directory
-    location: fastq/    
+    location: /data/auto/Benchmarking_CWL/fastq/

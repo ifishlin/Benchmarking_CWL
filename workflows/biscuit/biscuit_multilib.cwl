@@ -1,3 +1,5 @@
+#!/usr/bin/env cwl-runner
+
 cwlVersion: v1.0
 class: Workflow
 
@@ -38,10 +40,29 @@ inputs:
     type: int
   output_name:
     type: string 
+  # qc parameters
+  adapter1:
+    type: string?
+  adapter2:
+    type: string?
+  trim_galore_quality:
+    type: int
+    default: 20
+  trim_galore_rrbs:
+    type: boolean
+    default: false
+  trim_galore_clip_r1:
+    type: int?
+  trim_galore_clip_r2:
+    type: int?
+  trim_galore_three_prime_clip_r1:
+    type: int?
+  trim_galore_three_prime_clip_r2:
+    type: int?
 
 steps:
-  biscuit_align_dedup_sort_merge:
-    run: "./tools/biscuit_align_dedup_sort_merge.cwl"
+  biscuit_trim_align_dedup_sort_merge:
+    run: "./tools/biscuit_trim_align_dedup_sort_merge.cwl"
     scatter: [read1, read2]
     scatterMethod: 'dotproduct'
     in:
@@ -65,7 +86,7 @@ steps:
     run: "../../tools/samtools_merge.cwl"
     in:
       bams:
-        source: biscuit_align_dedup_sort_merge/bam_merged
+        source: biscuit_trim_align_dedup_sort_merge/bam_merged
       output_name: 
         source: output_name
     out:
@@ -131,4 +152,4 @@ outputs:
         items:
           type: array # array of lanes sequenced as part of one library
           items: File
-      outputSource: biscuit_align_dedup_sort_merge/log
+      outputSource: biscuit_trim_align_dedup_sort_merge/log

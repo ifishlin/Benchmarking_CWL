@@ -1,6 +1,6 @@
 index_dir:
   class: Directory
-  path: ./genome/gmap_genome
+  path: ../../genome/gsnap/hg_GRCh38_PhiX_Lambda.fa
 read1:
   - 
     - class: File
@@ -26,12 +26,12 @@ read2:
       path: ../../fastq/4_2.fq.gz
 
 threads: 24
-output_name: test_twgbs
+output_name: test_mutlilib
 pbat: False
 ref:
   class: File
-  path: ./genome/chr22.fa
+  path: ../../genome/hg_GRCh38_PhiX_Lambda.fa
 dbsnp:
   class: File
-  path: ./dbsnp/with_chr.vcf.gz
+  path: ../../annotation/dbsnp/with_chr.vcf
 stand_call_conf: 30

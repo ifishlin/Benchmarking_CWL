@@ -19,20 +19,24 @@ arguments:
     shellQuote: false
   - valueFrom: bgzip
     position: 7
-  - valueFrom: ">"
+  - valueFrom: '>'
     position: 8
+    shellQuote: false
   - valueFrom: $(inputs.output_name).call.gz
     position: 9
+  - valueFrom: "--trimPE"
+    position: 2
+    shellQuote: false
 
 inputs:
   - id: bam
     type: File
     inputBinding:
-      position: 2
+      position: 4
   - id: ref_pos
     type: File
     inputBinding:
-      position: 1
+      position: 3
     secondaryFiles:
       - .tbi
   - id: output_name

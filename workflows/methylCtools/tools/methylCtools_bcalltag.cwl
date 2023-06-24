@@ -19,18 +19,22 @@ arguments:
     position: 7
   - valueFrom: ">"
     position: 8
+    shellQuote: false
   - valueFrom: $(inputs.output_name).call.gz
     position: 9
+  - valueFrom: "--trimPE"
+    position: 1
+    shellQuote: false
 
 inputs:
   - id: bam
     type: File
     inputBinding:
-      position: 2
+      position: 3
   - id: ref_pos
     type: File
     inputBinding:
-      position: 1
+      position: 2
     secondaryFiles:
       - .tbi
   - id: output_name

@@ -39,10 +39,14 @@ inputs:
   pbat: 
     type: boolean
     default: False
+  illuminaclip:
+    type: string
+  adapters_file:
+    type: File
 
 steps: 
-  bwameth_align_merge_sort_dedup:
-    run: "./tools/bwameth_align_merge_sort_dedup.cwl"
+  bwameth_trim_align_merge_sort_dedup:
+    run: "./tools/bwameth_trim_align_merge_sort_dedup.cwl"
     scatter: [read1, read2]
     scatterMethod: 'dotproduct'
     in:
@@ -58,6 +62,8 @@ steps:
         source: output_name
       pbat:
         source: pbat
+      illuminaclip: illuminaclip
+      adapters_file: adapters_file
     out: 
       - bam_duprem
       - picard_markdup_stat
@@ -67,7 +73,7 @@ steps:
     run: "../../tools/samtools_merge_and_sort.cwl"
     in:
       bams:
-        source: bwameth_align_merge_sort_dedup/bam_duprem
+        source: bwameth_trim_align_merge_sort_dedup/bam_duprem
       name_sort:
         valueFrom: $(false)
       threads: threads
@@ -102,10 +108,10 @@ outputs:
 #    outputSource: bwameth_align_merge_sort_dedup/bam_duprem 
   picard_markdup_stat:
     type: File[]
-    outputSource: bwameth_align_merge_sort_dedup/picard_markdup_stat
+    outputSource: bwameth_trim_align_merge_sort_dedup/picard_markdup_stat
   picard_markdup_log:
     type: File[]
-    outputSource: bwameth_align_merge_sort_dedup/picard_markdup_log
+    outputSource: bwameth_trim_align_merge_sort_dedup/picard_markdup_log
   bam_sorted_indexed:
     type: File
     outputSource: samtools_index/bam_sorted_indexed

@@ -38,10 +38,16 @@ inputs:
     type: File
     secondaryFiles:
       - .tbi
+  #trimmomatics
+  illuminaclip:
+    type: string
+  adapters_file:
+    type: File
+
 
 steps:
-  methylCtools_align_merge_sort_dedup:
-    run: "./tools/methylCtools_align_merge_sort_dedup.cwl"
+  methylCtools_trim_align_merge_sort_dedup:
+    run: "./tools/methylCtools_trim_align_merge_sort_dedup.cwl"
     scatter: [read1, read2]
     scatterMethod: 'dotproduct'
     in:
@@ -55,6 +61,8 @@ steps:
          source: ref_conv_fa
        threads:
          source: threads
+       illuminaclip: illuminaclip
+       adapters_file: adapters_file
     out:
        - bam_duprem
        - picard_markdup_stat
@@ -64,7 +72,7 @@ steps:
     run: "../../tools/samtools_merge_and_sort.cwl"
     in:
       bams:
-        source: methylCtools_align_merge_sort_dedup/bam_duprem
+        source: methylCtools_trim_align_merge_sort_dedup/bam_duprem
       name_sort:
         valueFrom: $(false)
       threads: threads

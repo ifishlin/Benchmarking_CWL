@@ -10,8 +10,8 @@ requirements:
   ShellCommandRequirement: {}
   InlineJavascriptRequirement: {}
 
-stderr: stdout
-stdout: $(inputs.output_name + ".fame.log")
+#stderr: stdout
+#stdout: $(inputs.output_name + ".fame.log")
 
 inputs:
   - id: read1

@@ -1,34 +1,36 @@
 read1:
   - 
     - class: File
-      path: ../../fastq/1_1.fq.gz
+      path: ../../fastq/5_1.fq.gz
     - class: File
-      path: ../../fastq/2_1.fq.gz
+      path: ../../fastq/6_1.fq.gz
   - 
     - class: File
-      path: ../../fastq/3_1.fq.gz
+      path: ../../fastq/7_1.fq.gz
     - class: File
-      path: ../../fastq/4_1.fq.gz
+      path: ../../fastq/8_1.fq.gz
 
 read2:
   - 
     - class: File
-      path: ../../fastq/1_2.fq.gz
+      path: ../../fastq/5_2.fq.gz
     - class: File
-      path: ../../fastq/2_2.fq.gz
+      path: ../../fastq/6_2.fq.gz
   - 
     - class: File
-      path: ../../fastq/3_2.fq.gz
+      path: ../../fastq/7_2.fq.gz
     - class: File
-      path: ../../fastq/4_2.fq.gz
-
+      path: ../../fastq/8_2.fq.gz
 ref_conv_fa:
   class: File
-  path: ./genome/chr22.conv.fa
+  path: ../../genome/methylCtools/hg_GRCh38_PhiX_Lambda.conv.fa
 ref_pos:
   class: File
-  path: ./genome/chr22.pos.gz
-
+  path: ../../genome/methylCtools/reference.pos.gz
 threads: 24
-output_name: test_twgbs
+output_name: test_multiple
 twgbs: TRUE
+adapters_file:
+   class: File
+   path: "/data/auto/Benchmarking_CWL/tools/adapters/TruSeq3-PE.fa"
+illuminaclip: "2:30:10:8:True"

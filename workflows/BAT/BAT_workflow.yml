@@ -1,15 +1,12 @@
 ref:
     class: File
-    path: ./genome/chr22.fa
+    path: ../../genome/hg_GRCh38_PhiX_Lambda.fa
 read1:
     - class: File
-      path: ../../fastq/1_1.fq
+      path: ../../fastq/1_1.fq.gz
 read2:
     - class: File
-      path: ../../fastq/1_2.fq
-prefix_db: 
-    class: File
-    path: ./genome/chr22.fa
+      path: ../../fastq/1_2.fq.gz
 threads: 4
 output_name: test
 header:

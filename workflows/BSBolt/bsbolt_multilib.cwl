@@ -31,10 +31,31 @@ inputs:
   pbat:
     type: boolean
     default: False
+  # qc parameters
+  adapter1:
+    type: string?
+  adapter2:
+    type: string?
+  trim_galore_quality:
+    type: int
+    default: 20
+  trim_galore_rrbs:
+    type: boolean
+    default: false
+  trim_galore_clip_r1:
+    type: int?
+  trim_galore_clip_r2:
+    type: int?
+  trim_galore_three_prime_clip_r1:
+    type: int?
+  trim_galore_three_prime_clip_r2:
+    type: int?
+
+
 
 steps:
-  bsbolt_align_merge_sort_dedup:
-     run: "./tools/bsbolt_align_merge_sort_dedup.cwl"
+  bsbolt_trim_align_merge_sort_dedup:
+     run: "./tools/bsbolt_trim_align_merge_sort_dedup.cwl"
      scatter: [read1, read2]
      scatterMethod: 'dotproduct'
      in:
@@ -57,7 +78,7 @@ steps:
     run: "../../tools/samtools_merge_and_sort.cwl"
     in:
       bams:
-        source: bsbolt_align_merge_sort_dedup/bam_markdup
+        source: bsbolt_trim_align_merge_sort_dedup/bam_markdup
       name_sort:
         valueFrom: $(false)
       threads: threads

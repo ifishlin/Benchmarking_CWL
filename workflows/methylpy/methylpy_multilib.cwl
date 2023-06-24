@@ -43,6 +43,30 @@ inputs:
      type: boolean
      default: $(false)
 
+  # qc parameters
+  adapter1:
+    type: string?
+  adapter2:
+    type: string?
+  trim_galore_quality:
+    type: int
+    default: 20
+  trim_galore_rrbs:
+    type: boolean
+    default: false
+  trim_galore_clip_r1:
+    type: int?
+  trim_galore_clip_r2:
+    type: int?
+  trim_galore_three_prime_clip_r1:
+    type: int?
+  trim_galore_three_prime_clip_r2:
+    type: int?
+  threads:
+    type: int
+    default: 16
+
+
 steps:
   methylpy_paired_multilib:
     run: "./tools/methylpy_paired_multilib.cwl"
@@ -59,6 +83,15 @@ steps:
          source: ref_fasta
        pbat:
          source: pbat
+       adapter1: adapter1
+       adapter2: adapter2
+       trim_galore_quality: trim_galore_quality
+       trim_galore_rrbs: trim_galore_rrbs
+       trim_galore_clip_r1: trim_galore_clip_r1
+       trim_galore_clip_r2: trim_galore_clip_r2
+       trim_galore_three_prime_clip_r1: trim_galore_three_prime_clip_r1
+       trim_galore_three_prime_clip_r2: trim_galore_three_prime_clip_r2
+       threads: threads
     out: 
        - tsvgz
 

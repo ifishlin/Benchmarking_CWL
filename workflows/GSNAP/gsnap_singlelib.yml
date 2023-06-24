@@ -1,23 +1,23 @@
 index_dir:
   class: Directory
-  path: ./genome/gmap_genome
+  path: ../../genome/gsnap/hg_GRCh38_PhiX_Lambda.fa
 read1:
   - class: File
-    path: ../../fastq/3_1.fq.gz
+    path: ../../fastq/5_1.fq.gz
   - class: File
-    path: ../../fastq/4_1.fq.gz
+    path: ../../fastq/6_1.fq.gz
 read2:
   - class: File
-    path: ../../fastq/3_2.fq.gz
+    path: ../../fastq/5_2.fq.gz
   - class: File
-    path: ../../fastq/4_2.fq.gz
+    path: ../../fastq/6_2.fq.gz
 threads: 24
-output_name: test
+output_name: test_single
 pbat: False
 ref:
   class: File
-  path: ./genome/chr22.fa
+  path: ../../genome/hg_GRCh38_PhiX_Lambda.fa
 dbsnp:
   class: File
-  path: ./dbsnp/with_chr.vcf.gz
+  path: ../../annotation/dbsnp/with_chr.vcf
 stand_call_conf: 30

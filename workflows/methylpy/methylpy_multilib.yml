@@ -27,9 +27,7 @@ read2:
       path: ../../fastq/1_2.fq.gz
 
 sample: test
-#forward-ref: ./genome/chr22.fa_f
-#reverse-ref: ./genome/chr22.fa_r
 ref_fasta:
   class: File
-  path: ./genome/chr22.fa
+  path: ../../genome/methylpy/hg_GRCh38_PhiX_Lambda.fa
 pbat: False 

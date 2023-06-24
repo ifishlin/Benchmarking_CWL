@@ -4,6 +4,7 @@ baseCommand: cat
 arguments:
   - valueFrom: ">"
     position: 3
+    shellQuote: false
   - valueFrom: $(inputs.output_name).vcf
     position: 4
 

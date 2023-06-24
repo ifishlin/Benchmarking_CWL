@@ -1,11 +1,11 @@
 read1:
   class: File
-  path: ../../fastq/1_1.fq.gz
+  path: ../../../fastq/1_1.fq.gz
 read2:
   class: File
-  path: ../../fastq/1_2.fq.gz
+  path: ../../../fastq/1_2.fq.gz
 ref:
   class: File
-  path: ./genome/chr22_index
+  path: ../../../genome/FAME150_seq197/FAME150_seq197
 output_name: test_wgbs
 pbat: False

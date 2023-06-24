@@ -1,3 +1,5 @@
+#!/usr/bin/env cwl-runner
+
 cwlVersion: v1.0
 class: Workflow
 
@@ -31,8 +33,8 @@ inputs:
     type: string
   dbsnp:
     type: File
-    secondaryFiles:
-      - .tbi
+#    secondaryFiles:
+#      - .tbi
   ref:
     type: File
     secondaryFiles:
@@ -41,9 +43,30 @@ inputs:
   stand_call_conf:
     type: int
 
+  # qc parameters
+  adapter1:
+    type: string?
+  adapter2:
+    type: string?
+  trim_galore_quality:
+    type: int
+    default: 20
+  trim_galore_rrbs:
+    type: boolean
+    default: false
+  trim_galore_clip_r1:
+    type: int?
+  trim_galore_clip_r2:
+    type: int?
+  trim_galore_three_prime_clip_r1:
+    type: int?
+  trim_galore_three_prime_clip_r2:
+    type: int?
+
+
 steps:
-  gsnap_align_dedup_sort_merge:
-    run: "./tools/gsnap_align_dedup_sort_merge.cwl"
+  gsnap_trim_align_dedup_sort_merge:
+    run: "./tools/gsnap_trim_align_dedup_sort_merge.cwl"
     scatter: [read1, read2]
     scatterMethod: 'dotproduct'
     in:
@@ -66,7 +89,7 @@ steps:
     run: "../../tools/samtools_merge.cwl"
     in:
       bams:
-        source: gsnap_align_dedup_sort_merge/bam
+        source: gsnap_trim_align_dedup_sort_merge/bam
       output_name: 
         source: output_name
     out:

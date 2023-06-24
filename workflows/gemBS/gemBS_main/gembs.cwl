@@ -2,10 +2,10 @@
 
 cwlVersion: v1.0
 class: CommandLineTool
-baseCommand: [] #
+baseCommand: ["run_gembs.sh"] 
 requirements:
   DockerRequirement:
-    dockerPull: gemBS_main 
+    dockerPull: ifishlin324/gembs 
       # ./docker_ext/gemBS_main
     dockerOutputDirectory: /opt
   InitialWorkDirRequirement:
@@ -19,9 +19,13 @@ inputs:
   conf:
     type: File
     doc: configuration
+    inputBinding:
+      position: 1
   csv:
     type: File
     doc: list of inputs datasets
+    inputBinding:
+      position: 2
   ref:
     type: Directory  
     doc: directory of reference

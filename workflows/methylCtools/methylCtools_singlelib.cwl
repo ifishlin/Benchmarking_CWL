@@ -36,18 +36,50 @@ inputs:
   if_twgbs:
     type: boolean
     default: False
+  illuminaclip:
+    type: string
+  adapters_file:
+    type: File
 
 
 steps:
+  qc_pretrim:
+    scatter: [read1, read2]
+    scatterMethod: 'dotproduct'
+    run: "../../tools/fastqc.cwl"
+    in:
+      read1: read1
+      read2: read2
+    out:
+      - fastqc_zip
+      - fastqc_html
+
+  trim:
+    scatter: [fastq1, fastq2]
+    scatterMethod: 'dotproduct'
+    run: "../../tools/trimming/trimmomatic.cwl"
+    in:
+      fastq1: read1
+      fastq2: read2
+      adapters_file: adapters_file
+      illuminaclip: illuminaclip
+    out:
+      - trimmomatic_log
+      - fastq1_trimmed
+      - fastq2_trimmed
+      - fastq1_trimmed_unpaired
+      - fastq2_trimmed_unpaired
+  
+
   methylCtools_fqconv:
     run: "./tools/methylCtools_fqconv.cwl"
     scatter: [read1, read2]
     scatterMethod: 'dotproduct'
     in:
        read1:
-         source: read1
+         source: trim/fastq1_trimmed
        read2:
-         source: read2
+         source: trim/fastq2_trimmed
        output_name:
          source: output_name
     out:
